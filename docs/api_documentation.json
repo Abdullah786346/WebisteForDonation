@@ -1,0 +1,620 @@
+{
+	"info": {
+		"_postman_id": "f1ed7b4a-fe64-4449-b3d0-af348135661b",
+		"name": "Heal Me API Docs",
+		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Scripts\" tab**\n\nAdding tests to your requests can help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/fa30ea0a-373d-4545-a668-e7b283cca343/aW1hZ2UucG5n\" width=\"2162\" height=\"1530\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n    \n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22121710"
+	},
+	"item": [
+		{
+			"name": "User Auth",
+			"item": [
+				{
+					"name": "User SIgnUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"Fasina Ayomikun\",\r\n    \"email\":\"deeyah.fash@gmail.com\",\r\n    \"password\":\"ayo\",\r\n    \"confirmPassword\":\"ayo\",\r\n    \"role\":\"admin\",\r\n    \"image\":\"/assets/.heoro\",\r\n    \"bio\":\"dope\",\r\n    \"address\":\"somewhere\",\r\n    \"country\":\"Nigeria\",\r\n    \"phone\":\"+234948249023\",\r\n    \"anonymous\":true\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/signup",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Verify Email",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"ayo\",\r\n    \"email\":\"ayo@gmail.com\",\r\n    \"password\":\"ayo\",\r\n    \"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/verifyEmail?verificationToken=b6bc03de5532108d011b69d2f77190bf3587c9af61eeb75f2e306a6f6a2ffb70bed05c20987117a6",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"verifyEmail"
+							],
+							"query": [
+								{
+									"key": "verificationToken",
+									"value": "b6bc03de5532108d011b69d2f77190bf3587c9af61eeb75f2e306a6f6a2ffb70bed05c20987117a6"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User SIgn in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\":\"deeyah.fash@gmail.com\",\r\n    \"password\":\"ayo\"\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/signin",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"email\":\"fashayo31@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/forgotPassword",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n   \r\n    \"password\":\"ayo\",\r\n    \"token\":\"a8c7d7c3d1e71df4d13b6d32242fceb9241e0f78\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/resetPassword",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Details",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2JmY2M5NTE3Y2ZmM2Q3ZmQ2YWM3YSIsImVtYWlsIjoiYjQwNDlhNjVAYW5vbnltb3VzdXNlci5oZWFsbWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTk0MDE3MTUsImV4cCI6MTcyMTk5MzcxNX0.sqI-x3plSx3jBpOVDEYPSk5AZE_Vdncci4RQ8bFr5g4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"ayo dele1\",\r\n    \"image\":\"/assets/.heoro\",\r\n    \"bio\":\"dope\",\r\n    \"address\":\"somewhere\",\r\n    \"country\":\"Nigeria\",\r\n    \"phone\":\"+234948249023\",\r\n    \"anonymous\":true\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/update-profile",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"update-profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2JmY2M5NTE3Y2ZmM2Q3ZmQ2YWM3YSIsImVtYWlsIjoiYjQwNDlhNjVAYW5vbnltb3VzdXNlci5oZWFsbWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTk0MDE3MTUsImV4cCI6MTcyMTk5MzcxNX0.sqI-x3plSx3jBpOVDEYPSk5AZE_Vdncci4RQ8bFr5g4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"ayo dele1\",\r\n    \"image\":\"/assets/.heoro\",\r\n    \"bio\":\"dope\",\r\n    \"address\":\"somewhere\",\r\n    \"country\":\"Nigeria\",\r\n    \"phone\":\"+234948249023\",\r\n    \"anonymous\":true\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/delete/667bfc38517cff3d7fd6ac72",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"delete",
+								"667bfc38517cff3d7fd6ac72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Role",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2JmY2M5NTE3Y2ZmM2Q3ZmQ2YWM3YSIsImVtYWlsIjoiYjQwNDlhNjVAYW5vbnltb3VzdXNlci5oZWFsbWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTk0MDE3MTUsImV4cCI6MTcyMTk5MzcxNX0.sqI-x3plSx3jBpOVDEYPSk5AZE_Vdncci4RQ8bFr5g4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \r\n    \"role\":\"moderator\"\r\n  \r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/user/profile/667bfcc9517cff3d7fd6ac7a",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"profile",
+								"667bfcc9517cff3d7fd6ac7a"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/user/logout",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"user",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Org Auth",
+			"item": [
+				{
+					"name": "Org SIgnUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Example Organization\",\r\n    \"image\": \"example.com/image.jpg\",\r\n    \"address\": \"123 Main Street\",\r\n    \"city\": \"Example City\",\r\n    \"country\": \"Example Country\",\r\n    \"state\": \"Example State\",\r\n    \"zipCode\": \"12345\",\r\n    \"email\": \"fashayo31@gmail.com\",\r\n    \"phone\": \"123-456-7890\",\r\n    \"category\": \"hospital\",\r\n    \"mission\": \"To provide quality education to all.\",\r\n    \"residents\": 500,\r\n    \"accreditation\": \"National Board of Education\",\r\n    \"password\":\"ayo\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/signup",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org SIgn in",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"email\":\"example@example.com\",\r\n    \"password\":\"ayo\"\r\n   \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/signin",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"signin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Details Update",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2MwMjQ2ODM5NGJlZDYzNDlhZmJkNiIsImVtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbSIsInJvbGUiOiJvcmdhbml6YXRpb24iLCJpYXQiOjE3MTk0MDMxMDcsImV4cCI6MTcyMTk5NTEwN30.LB2i9llCsVArEpfgVqqW2_--mrU3jfnR4atjH98aCAU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n       \"name\": \"Example One Organization\",\r\n    \"image\": \"example.com/image.jpg\",\r\n    \"address\": \"123 Main Street\",\r\n    \"city\": \"Example City\",\r\n    \"country\": \"Example Country\",\r\n    \"state\": \"Example State\",\r\n    \"zipCode\": \"12345\",\r\n    \"phone\": \"123-456-7890\",\r\n    \"category\": \"hospital\",\r\n    \"mission\": \"To provide quality education to all.\",\r\n    \"residents\": 500,\r\n    \"accreditation\": \"National Board of Education\"\r\n\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/update",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2MwMjQ2ODM5NGJlZDYzNDlhZmJkNiIsImVtYWlsIjoiZXhhbXBsZUBleGFtcGxlLmNvbSIsInJvbGUiOiJvcmdhbml6YXRpb24iLCJpYXQiOjE3MTk0MDM2ODQsImV4cCI6MTcyMTk5NTY4NH0.z7HEO59mAwrZv1KaL8r4dpZbpEVN_fHZbuAACsSz30g",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"ayo\",\r\n    \"email\":\"ayo@gmail.com\",\r\n    \"password\":\"ayo\",\r\n    \"role\":\"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/delete",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Forgot Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"fashayo31@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/forgotPassword",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"forgotPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Reset Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"ayo\",\r\n    \"token\":\"0a524b891a1210fcbed9d559d7951c96978cf956\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/resetPassword",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"resetPassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Org Logout",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/organization/logout",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Org",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2N2JmY2M5NTE3Y2ZmM2Q3ZmQ2YWM3YSIsImVtYWlsIjoiYjQwNDlhNjVAYW5vbnltb3VzdXNlci5oZWFsbWUiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTk0MDE3MTUsImV4cCI6MTcyMTk5MzcxNX0.sqI-x3plSx3jBpOVDEYPSk5AZE_Vdncci4RQ8bFr5g4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"org1@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/organization/verify/667c039bf8e96e97818141df",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"organization",
+								"verify",
+								"667c039bf8e96e97818141df"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Donations",
+			"item": [
+				{
+					"name": "make Donation",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmIxMDBlMTVhNzFkY2YzNTgwZGYxYiIsImVtYWlsIjoiZmFzaGF5bzMxQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxODMwMDY0MCwiZXhwIjoxNzIwODkyNjQwfQ.emtRQ9-2xuDeLILNWHzKfQqkJ7u42lS3ZHGU9HkMnLM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NmIxMDBlMTVhNzFkY2YzNTgwZGYxYiIsImVtYWlsIjoiZmFzaGF5bzMxQGdtYWlsLmNvbSIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTcxODMwNTIxMCwiZXhwIjoxNzIwODk3MjEwfQ.kK8wRJF9aCxLUQS_Dn4TzE0rm4oQsWhkoDShNhrE-2Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"amount\":\"120000\",\r\n    \"currency\":\"NGN\",\r\n    \"charity\":\"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/donations/initiate-payment",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"donations",
+								"initiate-payment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Callback",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/donations/payment-callback?transaction_id=5830026&tx_ref=74ed81d10604bcd383f005d962382ec25f113a0a354f6eb49dfab07103044ae57da7aea93b0b9799",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"donations",
+								"payment-callback"
+							],
+							"query": [
+								{
+									"key": "transaction_id",
+									"value": "5830026"
+								},
+								{
+									"key": "tx_ref",
+									"value": "74ed81d10604bcd383f005d962382ec25f113a0a354f6eb49dfab07103044ae57da7aea93b0b9799"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "id",
+			"value": "1"
+		},
+		{
+			"key": "base_url",
+			"value": "https://postman-rest-api-learner.glitch.me/"
+		},
+		{
+			"key": "DOMAIN",
+			"value": "http://localhost:5000/api/v1"
+		}
+	]
+}

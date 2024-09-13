@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* scrollbar style for donor signup page */
+.scrollbarStyle::-webkit-scrollbar {
+  width: 7px;
+  @apply bg-slate-200;
+}
+
+.scrollbarStyle::-webkit-scrollbar-thumb {
+  @apply bg-blue-800 rounded-full;
+  /* text-transform: ; */
+}
+
+:root {
+  --white: #fff;
+  --blue-800: #031160;
+  --blue-100: #88888C;
+  --orange-900: #FF6B01;
+  --red-700: #A90101
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.settings-btn {
+  @apply text-gray-500 px-3 py-1 self-start rounded-3xl border border-gray-500 flex items-center gap-2 justify-center hover:bg-gray-200;
+}
+
+.max-container {
+  @apply max-w-7xl mx-auto
+}
+
+select,
+button,
+input {
+  outline: none;
+}
+
+select {
+  appearance: none;
+}
+
+.slide-down {
+  animation: slide-down-nav 0.5s;
+}
+
+.active-nav {
+  position: relative;
+}
+
+.active-nav::before {
+  content: "";
+  position: absolute;
+
+  bottom: 0;
+  left: calc(50% - 2px);
+  width: 4px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background-color: #fb8500;
+}
+
+.loader svg path,
+.loader svg rect {
+  fill: #031160;
+}
+
+
+#loading-spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+
+
+}
+
+#loading-spinner .spinner {
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 5px solid var(--blue-800);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#loading-spinner .inner {
+  border-top: 5px solid var(--white);
+  border-bottom: 5px solid var(--white);
+  width: 70px;
+  height: 70px;
+  margin: -35px;
+  -webkit-animation: inner-spin 2s linear infinite;
+  animation: inner-spin 2s linear infinite;
+}
+
+#loading-spinner .outer {
+  border-right: 5px solid var(--white);
+  border-left: 5px solid var(--white);
+  width: 90px;
+  height: 90px;
+  margin: -45px;
+  -webkit-animation: outer-spin 2s linear infinite;
+  animation: outer-spin 2s linear infinite;
+}
+
+.eye {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background-color: var(--orange-800);
+  animation: eye-flash 3s infinite;
+}
+
+@-webkit-keyframes inner-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes inner-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes outer-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  100% {
+    -webkit-transform: rotate-(180deg);
+  }
+}
+
+@keyframes outer-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-180deg);
+  }
+}
+
+@keyframes eye-flash {
+  0% {
+    background-color: var(--blue-100);
+  }
+
+  50% {
+    background-color: var(--white);
+  }
+
+  100% {
+    background-color: var(--blue-100);
+  }
+}
+
+@keyframes slide-down-nav {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+
+  100% {
+    opacity: 1;
+    height: 320px;
+  }
+}
